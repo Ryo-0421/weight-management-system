@@ -24,7 +24,7 @@ public class SignupController {
         this.modelMapper = modelMapper;
     }
 
-    @GetMapping("signup")
+    @GetMapping("/signup")
     public String getSignup(@ModelAttribute SignupForm form) {
         return "signup";
     }
