@@ -9,4 +9,10 @@
         values (#{role_code}, #{name}, #{password}, #{email})
     </insert>
 
+    <select id="findLoginUser" resultType="com.example.weight_management_system.model.MUser">
+        SELECT *
+        FROM users
+        WHERE email =  #{email}
+    </select>
+
 </mapper>

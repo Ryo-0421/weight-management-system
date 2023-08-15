@@ -19,4 +19,9 @@ public class UserServiceImpl implements UserService {
         user.setRole_code(2);
         userMapper.insertOne(user);
     }
+
+    @Override
+    public MUser getLoginUser(String email) {
+        return userMapper.findLoginUser(email);
+    }
 }
