@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     private UserMapper userMapper;
+    private PasswordEncoder encoder;
 
-    public UserServiceImpl(UserMapper userMapper) {
+    public UserServiceImpl(UserMapper userMapper, PasswordEncoder encoder) {
         this.userMapper = userMapper;
+        this.encoder = encoder;
     }
 
     @Override
