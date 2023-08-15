@@ -3,6 +3,7 @@ package com.example.weight_management_system.service.impl;
 import com.example.weight_management_system.model.MUser;
 import com.example.weight_management_system.repository.UserMapper;
 import com.example.weight_management_system.service.UserService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
