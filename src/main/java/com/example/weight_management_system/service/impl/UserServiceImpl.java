@@ -19,7 +19,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void signup(MUser user) {
-        user.setRole_code(2);
+        user.setRoleCode(2);
+        String rawPassword = user.getPassword();
+        user.setPassword(encoder.encode(rawPassword));
         userMapper.insertOne(user);
     }
 
