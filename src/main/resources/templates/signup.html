@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
+    <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+    <title>ユーザー新規登録画面</title>
+</head>
+<body>
+<header class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">TrainingManagementApp2</a>
+        </div>
+    </div>
+</header>
+<div class="square">
+<form id="signup-form" method="post" action="signup" class="form-signup">
+    <div class="form-group">
+        <b><label for="userName">ユーザー名</label></b>
+        <input type="text" class="form-control" id="userName" name="userName"/>
+    </div>
+    <div class="form-group">
+        <b><label for="password">パスワード</label></b>
+        <input type="password" class="form-control" id="password" name="password"/>
+    </div>
+    <div class="form-group">
+        <b><label for="email">メールアドレス</label></b>
+        <input type="email" class="form-control" id="email" name="email"/>
+    </div>
+    <input type="submit" value="新規登録" class="btn btn-outline-secondary form-control"/>
+    <button type="button" class="btn btn-outline-danger form-control back-button">戻る</button>
+</form>
+</div>
+</body>
+</html>
