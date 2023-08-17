@@ -9,7 +9,7 @@ import javax.validation.constraints.Pattern;
 
 @Data
 public class SignupForm {
-    private Integer role_code;
+    private Integer roleCode;
     @NotBlank
     @Length(min = 1, max = 10)
     private String name;
