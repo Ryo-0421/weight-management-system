@@ -24,7 +24,7 @@
             </a>
         </div>
     </div>
-    <a class="btn btn-success view-user-button" sec:authorize="hasAuthority('ADMIN')">
+    <a class="btn btn-success view-user-button" sec:authorize="hasAuthority('ADMIN')" th:href="@{/users}">
         ユーザ閲覧
     </a>
 </div>
