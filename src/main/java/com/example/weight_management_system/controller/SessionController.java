@@ -28,10 +28,6 @@ public class SessionController {
         HttpSession session = request.getSession();
         session.setAttribute("userId", userId);
 
-//        if (user.getRoleCode() == 1) {
-//            return "redirect:/admin";
-//        }
-
         return "redirect:/home";
     }
 }
