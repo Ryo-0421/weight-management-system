@@ -1,0 +1,27 @@
+.table-header {
+    background-color: black;
+    color: white;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 30px;
+}
+
+.custom-table {
+    width: 1000px;
+    max-width: 1400px;
+    text-align: center;
+}
+
+.back-button {
+    width: 550px;
+}
+
+.icon-container {
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+}
