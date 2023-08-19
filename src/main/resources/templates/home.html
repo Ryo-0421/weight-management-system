@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+    <title>ホーム画面</title>
+</head>
+<body>
+<div layout:fragment="content" class="text-center">
+    <div class="d-flex flex-column align-items-center justify-content-center h-100">
+        <div class="btn-group mb-3">
+            <a class="btn btn-primary record-weight-button">
+                体重記録
+            </a>
+            <a class="btn btn-primary view-weight-button">
+                体重閲覧
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
