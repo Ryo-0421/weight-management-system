@@ -31,11 +31,24 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("user not found");
         }
 
-        GrantedAuthority authority = new SimpleGrantedAuthority(String.valueOf(loginUser.getRoleCode()));
+        String role = this.roleToReplaceValue(loginUser.getRoleCode());
+
+        GrantedAuthority authority = new SimpleGrantedAuthority(role);
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(authority);
 
         UserDetails userDetails = new User(loginUser.getEmail(), loginUser.getPassword(), authorities);
         return userDetails;
+    }
+
+    private String roleToReplaceValue(int role) {
+        switch (role) {
+            case 1:
+                return "ADMIN";
+            case 2:
+                return "GENERAL";
+            default:
+                throw new IllegalArgumentException(String.format("invalid role: expected=1 or 2, actual=%s", role));
+        }
     }
 }
