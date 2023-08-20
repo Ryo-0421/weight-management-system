@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/userManagement.css}">
+    <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+    <title>ユーザー管理画面</title>
+</head>
+<body>
+<div layout:fragment="content" class="text-center">
+    <div class="table-container">
+        <table class="table table-hover custom-table">
+            <thead>
+            <tr class="table-header">
+                <td>Name</td>
+                <td>Password</td>
+                <td>Email</td>
+                <td>Role</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item: ${users}">
+                <td th:text="${item.getName()}"></td>
+                <td th:text="${item.getPassword()}"></td>
+                <td th:text="${item.getEmail()}"></td>
+                <td>
+                    <span th:text="${item.getRoleCode() == 1 ? 'ROLE_ADMIN' : item.getRoleCode() == 2 ? 'ROLE_GENERAL' : ''}"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-outline-danger back-button" th:href="@{/home}">戻る</a>
+    </div>
+</div>
+</body>
+</html>
