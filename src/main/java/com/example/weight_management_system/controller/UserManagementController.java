@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 @Controller
 public class UserManagementController {
 
@@ -19,10 +21,16 @@ public class UserManagementController {
 
     @GetMapping("/users")
     public String getUserManagement(@AuthenticationPrincipal UserDetails auth, Model model) {
+
+        List<MUser> users = this.userService.getUsers();
+
         String email = auth.getUsername();
         MUser user = userService.getLoginUser(email);
         String userName = user.getName();
+
         model.addAttribute("userName", userName);
+        model.addAttribute("users", users);
+
         return "userManagement";
     }
 }
