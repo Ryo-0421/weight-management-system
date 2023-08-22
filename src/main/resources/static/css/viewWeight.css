@@ -1,0 +1,56 @@
+.table-header {
+    background-color: black;
+    color: white;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+
+.custom-table {
+    width: 750px; /* 任意の幅を設定 */
+    max-width: 900px; /* 必要に応じて最大幅を設定 */
+    text-align: center;
+    table-layout: fixed;
+}
+
+.back-button {
+    width: 350px;
+}
+
+.icon-container.edit {
+    border: 1px solid #00ff00;
+    width: 50px; /* 横幅を広げる */
+}
+
+.icon-container.delete {
+    border: 1px solid blue;
+    width: 50px; /* 横幅を広げる */
+}
+
+.icon-container {
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.icon-container a {
+    text-decoration: none;
+}
+
+.icon-container i {
+    font-size: 18px;
+}
+
+.pencil-icon {
+    color: #00ff00;
+}
+
+.pagination {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
