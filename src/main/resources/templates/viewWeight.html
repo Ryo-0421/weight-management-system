@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/viewWeight.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+    <title>体重閲覧画面</title>
+</head>
+<body>
+<div layout:fragment="content" class="text-center">
+<div class="table-container">
+    <table class="table table-hover custom-table">
+        <thead>
+        <tr class="table-header">
+            <td>Date</td>
+            <td>Weight</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2023/02/02</td>
+            <td>70.3kg</td>
+            <td>
+                <div class="icon-container edit">
+                    <a href="#"><i class="fas fa-pencil-alt pencil-icon"></i></a>
+                </div>
+            </td>
+            <td>
+                <div class="icon-container delete">
+                    <a href="#"><i class="fas fa-trash-alt"></i></a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>2023/02/07</td>
+            <td>62.4kg</td>
+            <td>
+                <div class="icon-container edit">
+                    <a href="#"><i class="fas fa-pencil-alt pencil-icon"></i></a>
+                </div>
+            </td>
+            <td>
+                <div class="icon-container delete">
+                    <a href="#"><i class="fas fa-trash-alt"></i></a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>2023/02/09</td>
+            <td>66.8kg</td>
+            <td>
+                <div class="icon-container edit">
+                    <a href="#"><i class="fas fa-pencil-alt pencil-icon"></i></a>
+                </div>
+            </td>
+            <td>
+                <div class="icon-container delete">
+                    <a href="#"><i class="fas fa-trash-alt"></i></a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="pagination">
+    << 前  1  次 >>
+</div>
+<div class="text-center">
+    <a class="btn btn-outline-danger back-button" th:href="@{/home}">戻る</a>
+</div>
+</div>
+</body>
+</html>
