@@ -14,14 +14,16 @@
 <body>
 <div layout:fragment="content">
     <div class="square">
-        <form method="post" th:action="@{/physicals/create}" class="form-record-weight">
+        <form method="post" th:action="@{/physicals/create}" class="form-record-weight" th:object="${recordWeightForm}">
             <div class="form-group">
-                <label for="date"><b>日付</b></label>
-                <input type="date" class="form-control" id="date" name="date"/>
+                <label for="recordedDate"><b>日付</b></label>
+                <input type="date" class="form-control" th:field="*{recordedDate}" th:errorclass="is-invalid"/>
+                <div class="invalid-feedback" th:error="*{recordedDate}"></div>
             </div>
             <div class="form-group">
                 <label for="weight"><b>体重</b></label>
-                <input type="number" class="form-control" id="weight" name="weight"/>
+                <input type="number" class="form-control" th:field="*{weight}" th:errorclass="is-invalid"/>
+                <div class="invalid-feedback" th:error="*{weight}"></div>
             </div>
             <input type="submit" value="記録" class="btn btn-outline-secondary form-control record-button"/>
             <a type="submit" class="btn btn-outline-danger form-control back-button" th:href="@{/home}">
