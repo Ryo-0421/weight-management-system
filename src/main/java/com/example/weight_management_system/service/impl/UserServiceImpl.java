@@ -6,6 +6,8 @@ import com.example.weight_management_system.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -28,5 +30,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public MUser getLoginUser(String email) {
         return userMapper.findLoginUser(email);
+    }
+
+    @Override
+    public List<MUser> getUsers() {
+        return userMapper.findUsers();
     }
 }
