@@ -26,31 +26,29 @@ public class WeightServiceImpl implements WeightService {
     @Override
     public void recordWeight(MWeight weight) {
         int userId = (int) session.getAttribute("userId");
-        if (weight != null) {
-            List<MWeight> weights = this.findWeight(userId);
-            boolean isRecordedDateAlreadyExists = false;
+        if (weight == null) throw new NullPointerException("weightは値を持ちません。");
 
-            for (MWeight existingWeight : weights) {
-                if (Objects.equals(existingWeight.getRecordedDate(), weight.getRecordedDate())) {
-                    isRecordedDateAlreadyExists = true;
-                    break;
-                }
+        List<MWeight> weights = this.findWeight(userId);
+        boolean isRecordedDateAlreadyExists = false;
+
+        for (MWeight existingWeight : weights) {
+            if (Objects.equals(existingWeight.getRecordedDate(), weight.getRecordedDate())) {
+                isRecordedDateAlreadyExists = true;
+                break;
             }
+        }
 
-            LocalDateTime currentDateTime = LocalDateTime.now();
-            weight.setCreatedAt(currentDateTime);
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        weight.setCreatedAt(currentDateTime);
 
-            if (!isRecordedDateAlreadyExists) {
-                weight.setUserId(userId);
-                this.weightMapper.insertOneWeight(weight);
-            } else {
-                this.updateOneWeight(userId, weight.getCreatedAt(), weight.getWeight(), weight.getRecordedDate());
-            }
-
+        if (!isRecordedDateAlreadyExists) {
+            weight.setUserId(userId);
+            this.weightMapper.insertOneWeight(weight);
         } else {
-            throw new NullPointerException("weightは値を持ちません。");
+            this.updateOneWeight(userId, weight.getCreatedAt(), weight.getWeight(), weight.getRecordedDate());
         }
     }
+
 
     @Override
     public List<MWeight> findWeight(int userId) {
