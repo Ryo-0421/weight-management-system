@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/physicals")
 public class ViewWeightController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public ViewWeightController(UserService userService) {
         this.userService = userService;
