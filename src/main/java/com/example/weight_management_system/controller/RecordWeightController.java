@@ -41,9 +41,10 @@ public class RecordWeightController {
     }
 
     @PostMapping("/create")
-    public String postRecordWeight(@AuthenticationPrincipal UserDetails auth,
-                                   @ModelAttribute @Validated RecordWeightForm form,
-                                   BindingResult bindingResult, Model model) {
+    public String postRecordWeight(
+            @AuthenticationPrincipal UserDetails auth,
+            @ModelAttribute @Validated RecordWeightForm form,
+            BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return getRecordWeight(auth, form, model);
         }
