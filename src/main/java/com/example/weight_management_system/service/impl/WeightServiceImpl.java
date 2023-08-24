@@ -15,8 +15,8 @@ import java.util.Objects;
 @Service
 public class WeightServiceImpl implements WeightService {
 
-    private WeightMapper weightMapper;
-    private HttpSession session;
+    private final WeightMapper weightMapper;
+    private final HttpSession session;
 
     public WeightServiceImpl(WeightMapper weightMapper, HttpSession session) {
         this.weightMapper = weightMapper;

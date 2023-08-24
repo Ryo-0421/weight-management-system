@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/physicals")
 public class RecordWeightController {
 
-    private UserService userService;
-    private WeightService weightService;
-    private ModelMapper modelMapper;
+    private final UserService userService;
+    private final WeightService weightService;
+    private final ModelMapper modelMapper;
 
     public RecordWeightController(UserService userService, WeightService weightService, ModelMapper modelMapper) {
         this.userService = userService;
