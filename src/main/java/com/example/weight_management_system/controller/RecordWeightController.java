@@ -35,7 +35,7 @@ public class RecordWeightController {
     public String getRecordWeight(@AuthenticationPrincipal UserDetails auth, @ModelAttribute RecordWeightForm form,
                                   Model model) {
         String email = auth.getUsername();
-        MUser user = userService.getLoginUser(email);
+        MUser user = this.userService.getLoginUser(email);
         model.addAttribute("userName", user.getName());
         return "recordWeight";
     }
