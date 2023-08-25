@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.weight_management_system.repository.WeightMapper">
+
+    <insert id="insertOneWeight">
+        insert into physical_details (user_id, created_at, weight, recorded_date)
+        values (#{userId}, #{createdAt}, #{weight}, #{recordedDate})
+    </insert>
+
+    <select id="getWeight" resultType="com.example.weight_management_system.model.MWeight">
+        SELECT *
+        FROM physical_details
+        WHERE user_Id =  #{userId}
+    </select>
+
+    <update id="updateWeight">
+        UPDATE physical_details
+        SET user_id = #{userId}, created_at = #{createdAt}, weight = #{weight}, recorded_date = #{recordedDate}
+        WHERE recorded_date = #{recordedDate}
+    </update>
+
+</mapper>

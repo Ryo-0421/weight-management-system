@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS physical_details (
     user_id INT AUTO_INCREMENT,
-    created_at TIMESTAMP,
-    weight DECIMAL NOT NULL,
+    created_at TIMESTAMP(0),
+    weight DECIMAL(4,1) NOT NULL,
     recorded_date DATE NOT NULL,
     PRIMARY KEY(user_id, created_at),
     FOREIGN KEY(user_id) REFERENCES users(id)
