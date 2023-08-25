@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/physicals")
 public class ViewWeightController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public ViewWeightController(UserService userService) {
         this.userService = userService;
@@ -22,7 +22,7 @@ public class ViewWeightController {
     @GetMapping("/{userId}")
     public String getViewWeight(@AuthenticationPrincipal UserDetails auth, Model model) {
         String email = auth.getUsername();
-        MUser user = userService.getLoginUser(email);
+        MUser user = this.userService.getLoginUser(email);
         model.addAttribute("userName", user.getName());
         return "viewWeight";
     }

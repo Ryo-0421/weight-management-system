@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/physicals")
 public class RecordWeightController {
 
-    private UserService userService;
-    private WeightService weightService;
-    private ModelMapper modelMapper;
+    private final UserService userService;
+    private final WeightService weightService;
+    private final ModelMapper modelMapper;
 
     public RecordWeightController(UserService userService, WeightService weightService, ModelMapper modelMapper) {
         this.userService = userService;
@@ -35,15 +35,16 @@ public class RecordWeightController {
     public String getRecordWeight(@AuthenticationPrincipal UserDetails auth, @ModelAttribute RecordWeightForm form,
                                   Model model) {
         String email = auth.getUsername();
-        MUser user = userService.getLoginUser(email);
+        MUser user = this.userService.getLoginUser(email);
         model.addAttribute("userName", user.getName());
         return "recordWeight";
     }
 
     @PostMapping("/create")
-    public String postRecordWeight(@AuthenticationPrincipal UserDetails auth,
-                                   @ModelAttribute @Validated RecordWeightForm form,
-                                   BindingResult bindingResult, Model model) {
+    public String postRecordWeight(
+            @AuthenticationPrincipal UserDetails auth,
+            @ModelAttribute @Validated RecordWeightForm form,
+            BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return getRecordWeight(auth, form, model);
         }
