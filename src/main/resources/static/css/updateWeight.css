@@ -1,0 +1,24 @@
+.form-update-weight {
+    width: 150%;
+    max-width: 500px;
+    padding: 15px;
+    margin: auto;
+}
+
+.square {
+    border: 1px solid #000000;
+    background: #ffffff;
+    padding-bottom: 55px;
+    padding-top: 25px;
+    width: 38%;
+    margin: 55px auto auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+    margin-top: 20px;
+}
+
+.update-button {
+    margin-top: 10px;
+}
