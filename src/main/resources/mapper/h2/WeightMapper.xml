@@ -21,4 +21,18 @@
         WHERE recorded_date = #{recordedDate}
     </update>
 
+    <select id="findWeightForPagination" resultType="com.example.weight_management_system.model.MWeight">
+        SELECT *
+        FROM physical_details
+        WHERE user_id = #{userId}
+        ORDER BY recorded_date DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="findWeightForPaginationCount" resultType="java.lang.Long">
+        SELECT COUNT(*)
+        FROM physical_details
+        WHERE user_Id = #{userId}
+    </select>
+
 </mapper>

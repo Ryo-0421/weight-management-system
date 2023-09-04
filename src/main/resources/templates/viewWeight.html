@@ -14,68 +14,50 @@
 </head>
 <body>
 <div layout:fragment="content" class="text-center">
-<div class="table-container">
-    <table class="table table-hover custom-table">
-        <thead>
-        <tr class="table-header">
-            <td>Date</td>
-            <td>Weight</td>
-            <td>Edit</td>
-            <td>Delete</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>2023/02/02</td>
-            <td>70.3kg</td>
-            <td>
-                <div class="icon-container edit">
-                    <a href="#"><i class="fas fa-pencil-alt pencil-icon"></i></a>
-                </div>
-            </td>
-            <td>
-                <div class="icon-container delete">
-                    <a href="#"><i class="fas fa-trash-alt"></i></a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>2023/02/07</td>
-            <td>62.4kg</td>
-            <td>
-                <div class="icon-container edit">
-                    <a href="#"><i class="fas fa-pencil-alt pencil-icon"></i></a>
-                </div>
-            </td>
-            <td>
-                <div class="icon-container delete">
-                    <a href="#"><i class="fas fa-trash-alt"></i></a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>2023/02/09</td>
-            <td>66.8kg</td>
-            <td>
-                <div class="icon-container edit">
-                    <a href="#"><i class="fas fa-pencil-alt pencil-icon"></i></a>
-                </div>
-            </td>
-            <td>
-                <div class="icon-container delete">
-                    <a href="#"><i class="fas fa-trash-alt"></i></a>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div class="pagination">
-    << 前  1  次 >>
-</div>
-<div class="text-center">
-    <a class="btn btn-outline-danger back-button" th:href="@{/home}">戻る</a>
-</div>
+    <div class="table-container">
+        <table class="table table-hover custom-table">
+            <thead>
+            <tr class="table-header">
+                <td>Date</td>
+                <td>Weight</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="weight : ${weights}">
+                <td th:text="${#temporals.format(weight.recordedDate, 'YYYY/MM/dd')}"></td>
+                <td th:text="${weight.weight}"></td>
+                <td>
+                    <div class="icon-container edit">
+                        <a href="#"><i class="fas fa-pencil-alt pencil-icon"></i></a>
+                    </div>
+                </td>
+                <td>
+                    <div class="icon-container delete">
+                        <a href="#"><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination">
+        <a th:if="${page.hasPrevious()}" th:href="@{/physicals/{userId}(userId=${userId}, page=${page.number-1})}">
+            &lt;&lt; 前&nbsp;&nbsp;
+        </a>
+
+        <span class="pagination-link">
+        <span th:text="${page.number + 1}"></span>
+    </span>
+
+        <a th:unless="${page.hasPrevious()}" th:href="@{/physicals/{userId}(userId=${userId}, page=${page.number+1})}">
+            &nbsp;&nbsp; 次 &gt;&gt;
+        </a>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-outline-danger back-button" th:href="@{/home}">戻る</a>
+    </div>
 </div>
 </body>
 </html>

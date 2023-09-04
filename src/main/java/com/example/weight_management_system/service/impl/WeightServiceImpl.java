@@ -3,6 +3,10 @@ package com.example.weight_management_system.service.impl;
 import com.example.weight_management_system.model.MWeight;
 import com.example.weight_management_system.repository.WeightMapper;
 import com.example.weight_management_system.service.WeightService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
@@ -49,7 +53,6 @@ public class WeightServiceImpl implements WeightService {
         }
     }
 
-
     @Override
     public List<MWeight> findWeight(int userId) {
         return this.weightMapper.getWeight(userId);
@@ -58,5 +61,13 @@ public class WeightServiceImpl implements WeightService {
     @Override
     public void updateOneWeight(int userId, LocalDateTime createdAt, BigDecimal weight, LocalDate recordedDate) {
         this.weightMapper.updateWeight(userId, createdAt, weight, recordedDate);
+    }
+
+    @Override
+    public Page<MWeight> getWeights(int userId, Pageable pageable) {
+        int offset = pageable.getPageNumber() * pageable.getPageSize();
+        List<MWeight> content = this.weightMapper.findWeightForPagination(userId, offset, pageable.getPageSize());
+        long total = this.weightMapper.findWeightForPaginationCount(userId);
+        return new PageImpl<>(content, pageable, total);
     }
 }

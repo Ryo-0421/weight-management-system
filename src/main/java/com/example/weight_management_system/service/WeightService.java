@@ -1,6 +1,8 @@
 package com.example.weight_management_system.service;
 
 import com.example.weight_management_system.model.MWeight;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,4 +16,7 @@ public interface WeightService {
     List<MWeight> findWeight(int userId);
 
     void updateOneWeight(int userId, LocalDateTime createdAt, BigDecimal weight, LocalDate recordedDate);
+
+    Page<MWeight> getWeights(int userId, Pageable pageable);
+
 }
