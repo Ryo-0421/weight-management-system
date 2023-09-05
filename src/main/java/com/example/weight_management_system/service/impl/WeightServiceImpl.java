@@ -70,4 +70,14 @@ public class WeightServiceImpl implements WeightService {
         long total = this.weightMapper.findWeightForPaginationCount(userId);
         return new PageImpl<>(content, pageable, total);
     }
+
+    @Override
+    public void editWeight(String createdAt, BigDecimal weight, LocalDate recordedDate) {
+        this.weightMapper.updateSelectedWeight(createdAt, weight, recordedDate);
+    }
+
+    @Override
+    public MWeight findWeightByCreatedAt(LocalDateTime createdAt) {
+         return this.weightMapper.getWeightByCreatedAt(createdAt);
+    }
 }
