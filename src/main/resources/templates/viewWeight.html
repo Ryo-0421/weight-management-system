@@ -30,7 +30,7 @@
                 <td th:text="${weight.weight}"></td>
                 <td>
                     <div class="icon-container edit">
-                        <a href="#"><i class="fas fa-pencil-alt pencil-icon"></i></a>
+                        <a th:href="@{'/physicals/edit/' + ${weight.createdAt}}"><i class="fas fa-pencil-alt pencil-icon"></i></a>
                     </div>
                 </td>
                 <td>
