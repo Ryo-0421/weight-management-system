@@ -23,4 +23,5 @@ public interface WeightService {
 
     MWeight findWeightByCreatedAt(LocalDateTime createdAt);
 
+    void deleteOneWeight(String createdAt);
 }

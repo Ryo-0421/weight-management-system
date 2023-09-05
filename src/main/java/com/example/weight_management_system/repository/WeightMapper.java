@@ -27,4 +27,6 @@ public interface WeightMapper {
                               @Param("recordedDate") LocalDate recordedDate);
 
     MWeight getWeightByCreatedAt(LocalDateTime createdAt);
+
+    void deleteWeight(@Param("createdAt") String createdAt);
 }

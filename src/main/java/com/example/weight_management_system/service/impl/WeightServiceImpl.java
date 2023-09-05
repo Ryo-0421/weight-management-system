@@ -80,4 +80,9 @@ public class WeightServiceImpl implements WeightService {
     public MWeight findWeightByCreatedAt(LocalDateTime createdAt) {
          return this.weightMapper.getWeightByCreatedAt(createdAt);
     }
+
+    @Override
+    public void deleteOneWeight(String createdAt) {
+        this.weightMapper.deleteWeight(createdAt);
+    }
 }
