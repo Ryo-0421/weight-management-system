@@ -47,4 +47,9 @@
         WHERE created_at = #{createdAt}
     </select>
 
+    <delete id="deleteWeight">
+        DELETE FROM physical_details
+        WHERE created_at = #{createdAt}
+    </delete>
+
 </mapper>
