@@ -35,4 +35,16 @@
         WHERE user_Id = #{userId}
     </select>
 
+    <update id="updateSelectedWeight">
+        UPDATE physical_details
+        SET weight = #{weight}, recorded_date = #{recordedDate}
+        WHERE created_at = #{createdAt}
+    </update>
+
+    <select id="getWeightByCreatedAt" resultType="com.example.weight_management_system.model.MWeight">
+        SELECT *
+        FROM physical_details
+        WHERE created_at = #{createdAt}
+    </select>
+
 </mapper>

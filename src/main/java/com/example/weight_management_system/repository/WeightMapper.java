@@ -22,4 +22,9 @@ public interface WeightMapper {
     List<MWeight> findWeightForPagination(@Param("userId") int userId, @Param("offset") int offset, @Param("limit") int limit);
 
     long findWeightForPaginationCount(int userId);
+
+    void updateSelectedWeight(@Param("createdAt") String createdAt, @Param("weight") BigDecimal weight,
+                              @Param("recordedDate") LocalDate recordedDate);
+
+    MWeight getWeightByCreatedAt(LocalDateTime createdAt);
 }

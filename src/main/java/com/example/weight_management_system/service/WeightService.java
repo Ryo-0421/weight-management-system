@@ -19,4 +19,8 @@ public interface WeightService {
 
     Page<MWeight> getWeights(int userId, Pageable pageable);
 
+    void editWeight(String createdAt, BigDecimal weight, LocalDate recordedDate);
+
+    MWeight findWeightByCreatedAt(LocalDateTime createdAt);
+
 }
