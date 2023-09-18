@@ -20,7 +20,7 @@
 <div class="square">
 <form id="signup-form" method="post" action="signup" class="form-signup" th:object="${signupForm}">
     <div class="form-group">
-        <label for="userName">ユーザー名</label>
+        <label for="name">ユーザー名</label>
         <input type="text" class="form-control" th:field="*{name}" th:errorclass="is-invalid"/>
         <div class="invalid-feedback" th:errors="*{name}"></div>
     </div>
@@ -35,7 +35,7 @@
         <div class="invalid-feedback" th:errors="*{email}"></div>
     </div>
     <input type="submit" value="新規登録" class="btn btn-outline-secondary form-control"/>
-    <button type="button" class="btn btn-outline-danger form-control back-button">戻る</button>
+    <a th:href="@{/login}" class="btn btn-outline-danger form-control back-button">戻る</a>
 </form>
 </div>
 </body>
