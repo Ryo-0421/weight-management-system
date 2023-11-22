@@ -27,6 +27,7 @@
     <a class="btn btn-success view-user-button" sec:authorize="hasAuthority('ADMIN')" th:href="@{/users}">
         ユーザ閲覧
     </a>
+    <a th:href="@{changePassword}">パスワード変更</a>
 </div>
 </body>
 </html>
