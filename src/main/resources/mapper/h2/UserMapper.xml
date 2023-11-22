@@ -20,4 +20,16 @@
         FROM users
     </select>
 
+    <select id="findOneUser" resultType="com.example.weight_management_system.model.MUser">
+        SELECT *
+        FROM users
+        WHERE id = #{id}
+    </select>
+
+    <update id="updatePassword">
+        UPDATE users
+        SET password = #{password}
+        WHERE id = #{id}
+    </update>
+
 </mapper>

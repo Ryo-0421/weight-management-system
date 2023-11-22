@@ -13,4 +13,8 @@ public interface UserMapper {
     MUser findLoginUser(String email);
 
     List<MUser> findUsers();
+
+    MUser findOneUser(Integer id);
+
+    void updatePassword(Integer id, String password);
 }

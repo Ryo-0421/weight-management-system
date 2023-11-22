@@ -11,4 +11,8 @@ public interface UserService {
     MUser getLoginUser(String email);
 
     List<MUser> getUsers();
+
+    MUser getUser(Integer id);
+
+    void updateUserPassword(Integer id, String password);
 }

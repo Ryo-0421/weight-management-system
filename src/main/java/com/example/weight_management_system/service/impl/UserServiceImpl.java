@@ -36,4 +36,14 @@ public class UserServiceImpl implements UserService {
     public List<MUser> getUsers() {
         return userMapper.findUsers();
     }
+
+    @Override
+    public MUser getUser(Integer id) {
+        return userMapper.findOneUser(id);
+    }
+
+    @Override
+    public void updateUserPassword(Integer id, String password) {
+        this.userMapper.updatePassword(id, password);
+    }
 }
